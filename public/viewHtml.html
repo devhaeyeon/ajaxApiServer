@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>api server 만들어보기</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+  <body>
+    <h1>Q. 여기 페이지는 ajax를 테스트를 할 수 있는 페이지로 만들자.
+        과연 가능할까?
+    </h1>
+    <h2>
+        A. 가능하다
+    </h2>
+<script>
+   $.getJSON('/product/all',function(data) {
+       console.log(data[0].key);
+   }).then()
+</script>
+  </body>
+</html>

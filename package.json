@@ -1,0 +1,24 @@
+{
+  "name": "hapiapi",
+  "version": "1.0.0",
+  "description": "node js + hapi + mongodb >> api서버 만들어보기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devhaeyeon/hapiApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devhaeyeon/hapiApi/issues"
+  },
+  "homepage": "https://github.com/devhaeyeon/hapiApi#readme",
+  "dependencies": {
+    "hapi": "^17.5.1",
+    "inert": "^5.1.0"
+  }
+}
