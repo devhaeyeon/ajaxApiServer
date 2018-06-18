@@ -5,17 +5,41 @@
     <title>api server 만들어보기</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-  <body>
-    <h1>Q. 여기 페이지는 ajax를 테스트를 할 수 있는 페이지로 만들자.
-        과연 가능할까?
-    </h1>
-    <h2>
-        A. 가능하다
-    </h2>
+    <body>
+        <div id="productInfo"></div> 
+        <div id="weatherInfo"></div>        
+    </body>
 <script>
-   $.getJSON('/product/all',function(data) {
-       console.log(data[0].key);
-   }).then()
+//    $.getJSON('/product/all',function(data) {
+//        console.log(data[0].key);
+//    }).then();
+
+// 상품 정보를 가져오는 json -> local server api
+// 날씨 정보를 가져오는 json -> external server api
+// 로딩바 이미지 사용하여 >> 데이터를 불러오고 있을 때
+// 비동기적으로 데이터를 가져오는 예시를 보여주기 위함.
+// 데이터를 가지고 오는 함수
+// 프라미스 패턴 사용, 사용 안한 예제
+// jQuery ajax를 사용한 예제
+// jQuery ajax를 사용하지 않은 예제
+// 크로스도메인 이슈 발생하는 예제
+// html5에서 제공하는 지오로케이션 api를 사용하여 현재 위치의 위도, 경도값을 받아서 현재 위치 날씨 정보를 가져오는 페이지 제작
+// 한국꺼를 제공하지 않는다면 , 
+
+var req=new XMLHttpRequest();
+req.open('GET','http://localhost:8989/product/all');
+req.send();
+req.onreadystatechange=function(e){
+    if(req.readyState===XMLHttpRequest.DONE) {
+        if(req.status ===200) {
+            console.log(req.responseText);
+        } else {
+            console.log("Error !");
+        }
+    }
+};
+
+
 </script>
   </body>
 </html>
