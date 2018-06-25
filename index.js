@@ -50,7 +50,15 @@ const init = async()=> {
         handler:(request,h)=>{
             return h.file('./public/ajaxStep1.html');
         }
-    })
+    });
+
+    server.route({
+        method:'GET',
+        path:'/ajaxStep2',
+        handler:(request,h)=>{
+            return h.file('./public/ajaxStep2.html');
+        }
+    });
     
     server.route({
         method:'GET',
