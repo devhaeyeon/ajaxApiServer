@@ -1,45 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8">
-    <title>api server 만들어보기</title>
+    <title>AJAX & JSON 결과 화면</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="./css/reset.css" type="text/css" rel="stylesheet">
+    <link href="./css/page.css" type="text/css" rel="stylesheet">
 </head>
     <body>
-        <div id="productInfo"></div> 
-        <div id="weatherInfo"></div>        
+        <div id="languageMenu">
+            <ul class="wrap_menu">
+                <li>javascript</li>
+                <li>react</li>
+                <li>vue</li>
+                <li>angular</li>                
+            </ul>
+        </div> 
+        <div id="languageSearchResult">
+            <div class="wrap_card">
+                <div class="wrap_tit">
+                    <div class="tit_card">
+                        <a href="https://code.facebook.com/posts/1840075619545360" class="link_card">
+                            Yarn – A new package manager for <em>JavaScript</em>
+                        </a>
+                    </div>
+                </div>                
+                <div class="wrap_date">
+                    <span class="txt_date">2016-10-11</span>
+                </div>
+                <div class="wrap_tags">
+                    <ul class="wrap_item">
+                        <li>story</li>
+                        <li>author_cpojer</li>
+                        <li>story_12684980</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrap_card">
+                    <div class="wrap_tit">
+                        <div class="tit_card">
+                            <a href="http://jsfiddle.net/ondras/hYfN3/" class="link_card">
+                                A spreadsheet in fewer than 30 lines of <em>JavaScript</em>, no library used
+                            </a>
+                        </div>
+                    </div>                
+                    <div class="wrap_date">
+                        <span class="txt_date">2013-11-13</span>
+                    </div>
+                    <div class="wrap_tags">
+                        <ul class="wrap_item">
+                            <li>story</li>
+                            <li>author_ondras</li>
+                            <li>story_6725387</li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="wrap_card">
+                <div class="wrap_tit">
+                    <div class="tit_card">
+                        <a href="http://www.meteor.com" class="link_card">Show HN: Meteor, a realtime <em>JavaScript</em> framework</a>
+                    </div>
+                </div>                
+                <div class="wrap_date">
+                    <span class="txt_date">2012-04-10</span>
+                </div>
+                <div class="wrap_tags">
+                    <ul class="wrap_item">
+                        <li>story</li>
+                        <li>author_geoffschmidt</li>
+                        <li>story_3824908</li>
+                        <li>show_hn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrap_card">
+                <div class="wrap_tit">
+                    <div class="tit_card">
+                        <a href="http://roughjs.com/" class="link_card">Show HN: RoughJS – Create hand-drawn graphics using <em>JavaScript</em></a>
+                    </div>
+                </div>                
+                <div class="wrap_date">
+                    <span class="txt_date">2018-03-12</span>
+                </div>
+                <div class="wrap_tags">
+                    <ul class="wrap_item">
+                        <li>story</li>
+                        <li>author_shihn</li>
+                        <li>story_16571827</li>
+                        <li>show_hn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>        
     </body>
-<script>
-//    $.getJSON('/product/all',function(data) {
-//        console.log(data[0].key);
-//    }).then();
-
-// 상품 정보를 가져오는 json -> local server api
-// ??? json -> external server api
-// 로딩바 이미지 사용하여 >> 데이터를 불러오고 있을 때
-// 비동기적으로 데이터를 가져오는 예시를 보여주기 위함.
-// 데이터를 가지고 오는 함수
-// 프라미스 패턴 사용, 사용 안한 예제
-// jQuery ajax를 사용한 예제
-// jQuery ajax를 사용하지 않은 예제
-// 크로스도메인 이슈 발생하는 예제
-// html5에서 제공하는 지오로케이션 api를 사용하여 현재 위치의 위도, 경도값을 받아서 현재 위치 날씨 정보를 가져오는 페이지 제작
-// 한국꺼를 제공하지 않는다면 , 
-
-var req=new XMLHttpRequest();
-req.open('GET','http://localhost:8989/product/all');
-req.send();
-req.onreadystatechange=function(e){
-    if(req.readyState===XMLHttpRequest.DONE) {
-        if(req.status ===200) {
-            console.log(req.responseText);
-        } else {
-            console.log("Error !");
-        }
-    }
-};
-
-
-</script>
-  </body>
+</body>
 </html>

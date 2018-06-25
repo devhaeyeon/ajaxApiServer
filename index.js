@@ -15,6 +15,42 @@ const init = async()=> {
             return h.file('./public/viewHtml.html');
         }
     });
+
+    server.route({
+        method:'GET',
+        path:'/exercise',
+        handler:(request,h)=> {
+            return h.file('./public/exercise.html');
+        }
+    });
+
+    server.route({
+        method:'GET',
+        path:'/css/{file*}',
+        handler:{
+            directory:{
+                path:'./public/css'
+            }
+        }
+    });
+
+    server.route({
+        method:'GET',
+        path:'/js/{file*}',
+        handler:{
+            directory:{
+                path:'./public/js'
+            }
+        }
+    });
+
+    server.route({
+        method:'GET',
+        path:'/ajaxStep1',
+        handler:(request,h)=>{
+            return h.file('./public/ajaxStep1.html');
+        }
+    })
     
     server.route({
         method:'GET',

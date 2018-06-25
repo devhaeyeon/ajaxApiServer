@@ -2,7 +2,7 @@
 -  ajax api 를 테스트 할 수 있는 환경 
 - 구현 예정
 
-// 상품 정보를 가져오는 json -> local server api
+// 메뉴 리스트를 가져오는 json -> local server api
 
 // 외부 json -> external server api
 
