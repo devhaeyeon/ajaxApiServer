@@ -47,17 +47,11 @@ const init = async()=> {
 
     server.route({
         method:'GET',
-        path:'/ajaxStep1',
-        handler:(request,h)=>{
-            return h.file('./public/ajaxStep1.html');
-        }
-    });
-
-    server.route({
-        method:'GET',
-        path:'/ajaxStep2',
-        handler:(request,h)=>{
-            return h.file('./public/ajaxStep2.html');
+        path:'/ajaxStep{step?}',
+        handler:(request,h)=> {
+            const step=encodeURIComponent(request.params.step);
+            return h.file('./public/ajaxStep'+step+'.html');
+        
         }
     });
     
