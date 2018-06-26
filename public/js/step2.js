@@ -10,23 +10,26 @@
 //    }).then();
 
 // 메뉴 리스트를 가져오는 json -> local server api ( v )
-// ??? json -> external server api
+// ??? json -> external server api ( v )
+
 // 로딩바 이미지 사용하여 >> 데이터를 불러오고 있을 때
-// 비동기적으로 데이터를 가져오는 예시를 보여주기 위함.
-// 데이터를 가지고 오는 함수
+// 비동기적으로 데이터를 가져오는 예시를 보여주기 위함. ( v )
+// jQuery ajax를 사용하지 않은 예제 ( v )
+
 // 프라미스 패턴 사용, 사용 안한 예제
 // jQuery ajax를 사용한 예제
-// jQuery ajax를 사용하지 않은 예제
+
 // 크로스도메인 이슈 발생하는 예제
 // html5에서 제공하는 지오로케이션 api를 사용하여 현재 위치의 위도, 경도값을 받아서 현재 위치 날씨 정보를 가져오는 페이지 제작
 // 한국꺼를 제공하지 않는다면 , 
 
-var loadSearchResult = function(ret) {
+var loadSearchResult = function(ret, target) {
     ret=JSON.parse(ret);
     console.log(ret);
     var source = $("#languageSearchResultTmpl").html();
     var template = Handlebars.compile(source);
     $('#languageSearchResult').append(template(ret));
+    $(target).empty();
 }
 
-api("https://hn.algolia.com/api/v1/search?query=javascript",loadSearchResult,apiError);
+api("https://hn.algolia.com/api/v1/search?query=javascript",loadSearchResult,apiError,'#resultLoading');

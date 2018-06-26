@@ -8,6 +8,17 @@ const server = Hapi.server({
 
 const init = async()=> {
     await server.register(require('inert'));
+
+    server.route({
+        method:'GET',
+        path:'/css/{file*}',
+        handler:{
+            directory:{
+                path:'./public/css'
+            }
+        }
+    });
+
     server.route({
         method:'GET',
         path:'/viewHtml',
@@ -21,16 +32,6 @@ const init = async()=> {
         path:'/exercise',
         handler:(request,h)=> {
             return h.file('./public/exercise.html');
-        }
-    });
-
-    server.route({
-        method:'GET',
-        path:'/css/{file*}',
-        handler:{
-            directory:{
-                path:'./public/css'
-            }
         }
     });
 
@@ -70,19 +71,25 @@ const init = async()=> {
     
     server.route({
         method:'GET',
-        path:'/product/all',
+        path:'/result/all',
         handler:(request,h)=> {
-            var retJson= [{
-                key:1,
-                name:'하라주쿠',
-                price:'20,000',
-                likeCnt:'100000'
-            },{
-                key:2,
-                name:'하라주쿠',
-                price:'30,000',
-                likeCnt:'10000'
-            }];
+            var retJson= {
+                "items":
+                [
+                    {
+                        "menuName":"javascript"
+                    },
+                    {
+                        "menuName":"react"
+                    },
+                    {
+                        "menuName":"vue"
+                    },
+                    {
+                        "menuName":"angular"
+                    }
+                ]
+            };
             return retJson;
         }
     });
