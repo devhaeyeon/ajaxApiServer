@@ -51,7 +51,6 @@ const init = async()=> {
         handler:(request,h)=> {
             const step=encodeURIComponent(request.params.step);
             return h.file('./public/ajaxStep'+step+'.html');
-        
         }
     });
     

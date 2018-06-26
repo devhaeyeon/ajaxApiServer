@@ -19,6 +19,7 @@
   "homepage": "https://github.com/devhaeyeon/hapiApi#readme",
   "dependencies": {
     "hapi": "^17.5.1",
+    "hapi-cors-headers": "^1.0.3",
     "inert": "^5.1.0"
   }
 }
