@@ -61,6 +61,14 @@ const init = async()=> {
 
     server.route({
         method:'GET',
+        path:'/ajaxAwaitAsync',
+        handler:(request,h)=> {
+            return h.file('./public/ajaxAwaitAsync.html');
+        }
+    });
+
+    server.route({
+        method:'GET',
         path:'/js/{file*}',
         handler:{
             directory:{
