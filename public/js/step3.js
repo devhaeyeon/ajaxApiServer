@@ -43,7 +43,6 @@ var loadResult = function(ret) {
 api("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo",loadResult,apiError);
 
 /*
-
 JSONP 사용한 방법중 하나의 예제
 http://schock.net/articles/2013/02/05/how-jsonp-really-works-examples/
 
@@ -53,5 +52,4 @@ function processJSON (json) {
 var script_element = document.createElement('script');
 script_element.src = 'http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=processJSON&tags=monkey&tagmode=any&format=json';
 document.getElementsByTagName('head')[0].appendChild(script_element);
-
 */

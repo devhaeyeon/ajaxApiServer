@@ -18,7 +18,7 @@ const init = async()=> {
             }
         }
     });
-
+    
     server.route({
         method:'GET',
         path:'/viewHtml',
@@ -85,8 +85,6 @@ const init = async()=> {
             return h.file('./public/ajaxStep'+step+'.html');
         }
     });
-
-    
     
     server.route({
         method:'GET',

@@ -1,56 +1,54 @@
 <script>
-        // fetch
-        const urlArr = [
-            "https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo",
-            "./js/menu.json"
-        ];
-        function createCORSRequest(method, url) {
-            var xhr = new XMLHttpRequest();
-            if ("withCredentials" in xhr){
-                xhr.open(method, url, true);
-            } else if (typeof XDomainRequest != "undefined"){
-                xhr = new XDomainRequest();
-                xhr.open(method, url);
-            } else {
-                xhr = null;
-            }
-            return xhr;
+    // fetch
+    const urlArr = [
+        "https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo",
+        "./js/menu.json"
+    ];
+    function createCORSRequest(method, url) {
+        var xhr = new XMLHttpRequest();
+        if ("withCredentials" in xhr){
+            xhr.open(method, url, true);
+        } else if (typeof XDomainRequest != "undefined"){
+            xhr = new XDomainRequest();
+            xhr.open(method, url);
+        } else {
+            xhr = null;
         }
-        var api = function(url, cb, err) {
-            return fetch(url).then(function(res) {
-                //console.log(res);
-                return res.json();
-            });
-        };
-        var apiError=function(err) {
-            console.log(err);
-        };
-    
-        var loadResult = function(ret) {
-            console.log(ret);
-        };
- 
-    (async () => {
-    try {
-        await api(urlArr[0],loadResult,apiError).then(function(ret) {
-            loadResult(ret);
-        }); 
-        await api(urlArr[1],loadResult,apiError).then(function(ret) {
-            loadResult(ret);
-        }); 
-        await api(urlArr[0],loadResult,apiError).then(function(ret) {
-            loadResult(ret);
-        }); 
-        await api(urlArr[1],loadResult,apiError).then(function(ret) {
-            loadResult(ret);
-        }); 
-        await api(urlArr[0],loadResult,apiError).then(function(ret) {
-            loadResult(ret);
-        }); 
-    } catch(err) { 
-        console.error(err);
+        return xhr;
     }
+    var api = function(url, cb, err) {
+        return fetch(url).then(function(res) {
+            //console.log(res);
+            return res.json();
+        });
+    };
+    var apiError=function(err) {
+        console.log(err);
+    };
+
+    var loadResult = function(ret) {
+        console.log(ret);
+    };
+
+    (async () => {
+        try {
+            await api(urlArr[0],loadResult,apiError).then(function(ret) {
+                loadResult(ret);
+            }); 
+            await api(urlArr[1],loadResult,apiError).then(function(ret) {
+                loadResult(ret);
+            }); 
+            await api(urlArr[0],loadResult,apiError).then(function(ret) {
+                loadResult(ret);
+            }); 
+            await api(urlArr[1],loadResult,apiError).then(function(ret) {
+                loadResult(ret);
+            }); 
+            await api(urlArr[0],loadResult,apiError).then(function(ret) {
+                loadResult(ret);
+            }); 
+        } catch(err) { 
+            console.error(err);
+        }
     })();
-
-
 </script>
