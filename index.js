@@ -51,6 +51,13 @@ const init = async()=> {
         }
     });
 
+    server.route({
+        method:'GET',
+        path:'/ajaxFetch',
+        handler:(request,h)=> {
+            return h.file('./public/ajaxFetch.html');
+        }
+    });
 
     server.route({
         method:'GET',

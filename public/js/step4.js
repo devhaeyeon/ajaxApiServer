@@ -50,5 +50,6 @@ api(urlArr[0],loadResult,apiError)
 })
 .then(function(ret){
     loadResult(ret);
-    return api(urlArr[1],loadResult,apiError);
+}).catch(function(err){
+    console.log(err);
 });
