@@ -1,0 +1,60 @@
+<script>
+    const urlArr = [
+      "https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo",
+      "./js/menu.json"
+    ];
+    
+    function createCORSRequest(method, url) {
+        var xhr = new XMLHttpRequest();
+        if ("withCredentials" in xhr){
+            xhr.open(method, url, true);
+        } else if (typeof XDomainRequest != "undefined"){
+            xhr = new XDomainRequest();
+            xhr.open(method, url);
+        } else {
+            xhr = null;
+        }
+        return xhr;
+    }
+    
+    var api = function(url, cb, err, loadUrl) {
+        var req=createCORSRequest('get',url);
+        req.onload = function() {
+            cb(req.responseText,loadUrl);
+        };
+        req.send();
+    };
+    
+    var apiError=function(err) {
+        console.log(err);
+    };
+    
+    var loadResult = function(ret) {
+        console.log("test : "+ret);
+    };
+    
+api(urlArr[0],function(ret) {
+    loadResult(ret);
+    // 순서를 보장하기 위해 콜백 함수가 들어가 있습니다. 
+    api(urlArr[1],function(ret) {
+        loadResult(ret);
+        // 순서를 보장하기 위해 콜백 함수가 들어가 있습니다.
+        api(urlArr[0],function(ret) {
+            loadResult(ret);            
+            // 순서를 보장하기 위해 콜백 함수가 들어가 있습니다.
+            api(urlArr[1],function(ret) {
+                loadResult(ret);
+                // 순서를 보장하기 위해 콜백 함수가 들어가 있습니다.
+                api(urlArr[0],function(ret) {
+                    loadResult(ret);
+                    // 순서를 보장하기 위해 콜백 함수가 들어가 있습니다.
+                    api(urlArr[1],function(ret) {
+                        loadResult(ret);
+                    },apiError,urlArr[1]);        
+                },apiError,urlArr[0]);        
+            },apiError,urlArr[1]);        
+        },apiError,urlArr[0]);        
+    },apiError,urlArr[1]);
+},apiError,urlArr[0]);
+
+</script>

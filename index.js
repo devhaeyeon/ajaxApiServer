@@ -37,6 +37,23 @@ const init = async()=> {
 
     server.route({
         method:'GET',
+        path:'/ajaxSync',
+        handler:(request,h)=> {
+            return h.file('./public/ajaxSync.html');
+        }
+    });
+
+    server.route({
+        method:'GET',
+        path:'/ajaxCallback',
+        handler:(request,h)=> {
+            return h.file('./public/ajaxCallback.html');
+        }
+    });
+
+
+    server.route({
+        method:'GET',
         path:'/js/{file*}',
         handler:{
             directory:{
@@ -53,6 +70,8 @@ const init = async()=> {
             return h.file('./public/ajaxStep'+step+'.html');
         }
     });
+
+    
     
     server.route({
         method:'GET',
